@@ -124,7 +124,7 @@ def extract(
     logger.info("[*] Step 1: Extracting JavaScript files from page...")
 
     if browser:
-        js_files = get_js_files_from_page_browser(target_url, logger, storage_state)
+        js_files = get_js_files_from_page_browser(url=target_url, logger=logger, storage_state=storage_state)
     else:
         js_files = get_js_files_from_page(target_url, logger, timeout)
 

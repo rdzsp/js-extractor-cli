@@ -251,7 +251,7 @@ def get_js_files_from_page(url: str, logger, timeout: int = 3000) -> List[str]:
     
     return js_files
 
-def get_js_files_from_page_browser(url: str, logger, storage_state, timeout: int = 30000, is_login: bool = False) -> List[str]:
+def get_js_files_from_page_browser(url: str, logger, timeout: int = 30000, storage_state = None) -> List[str]:
     """
     Extract all JavaScript file URLs from a webpage using Playwright
     
@@ -267,23 +267,15 @@ def get_js_files_from_page_browser(url: str, logger, storage_state, timeout: int
     try:
         from playwright.sync_api import sync_playwright
         with sync_playwright() as p:
-            user_agent = get_user_agent(logger)
+            user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.7827.3 Safari/537.36"
             browser = p.chromium.launch(headless=True)
-            if is_login:
+            if storage_state:
                 context = browser.new_context(
-                    viewport={
-                        "width": 1366,
-                        "height": 768
-                    },
                     storage_state=storage_state, 
                     user_agent=user_agent
                 )
             else:
                 context = browser.new_context(
-                    viewport={
-                        "width": 1366,
-                        "height": 768
-                    },
                     user_agent=user_agent
                 )
 
@@ -291,7 +283,7 @@ def get_js_files_from_page_browser(url: str, logger, storage_state, timeout: int
             
             try:
                 logger.debug(f"[*] Opening URL: {url}")
-                page.goto(url, wait_until='domcontentloaded', timeout=timeout)
+                page.goto(url, wait_until='load', timeout=timeout)
                 
                 # Get all script tags
                 scripts = page.query_selector_all('script')
