@@ -26,7 +26,7 @@ def setup_logger(verbose: bool = False) -> logging.Logger:
     Configure and return application logger.
     """
 
-    logger = logging.getLogger("js_extractor")
+    logger = logging.getLogger("jsxtractor")
 
     # Prevent duplicate handlers
     if logger.handlers:

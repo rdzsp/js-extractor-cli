@@ -2,7 +2,7 @@
 
 A fast and flexible JavaScript extraction and regex scanning tool for security research, bug bounty hunting, and web application analysis.
 
-`js-extractor` crawls JavaScript files from a target website, applies configurable YAML-based regex groups, and exports structured extraction results.
+`jsxtractor` crawls JavaScript files from a target website, applies configurable YAML-based regex groups, and exports structured extraction results.
 
 ---
 
@@ -29,7 +29,7 @@ A fast and flexible JavaScript extraction and regex scanning tool for security r
 ### Install from PyPI
 
 ```bash
-pip install js-extractor
+pip install jsxtractor
 ```
 
 ### Install Playwright browser
@@ -45,31 +45,31 @@ playwright install chromium
 ### Basic Scan
 
 ```bash
-js-extractor https://example.com
+jsxtractor https://example.com
 ```
 
 ### Using Named Arguments
 
 ```bash
-js-extractor -u https://example.com
+jsxtractor -u https://example.com
 ```
 
 ### Using Custom Regex Group Directory
 
 ```bash
-js-extractor -u https://example.com -g ./groups
+jsxtractor -u https://example.com -g ./groups
 ```
 
 ### Enable Verbose Logging
 
 ```bash
-js-extractor -u https://example.com -v
+jsxtractor -u https://example.com -v
 ```
 
 ### Browser Mode
 
 ```bash
-js-extractor -u https://example.com --browser
+jsxtractor -u https://example.com --browser
 ```
 
 ---
@@ -81,7 +81,7 @@ Interactive login mode allows authenticated JavaScript extraction using Playwrig
 ### Login Example
 
 ```bash
-js-extractor -u https://example.com \
+jsxtractor -u https://example.com \
     --browser \
     --login \
     --login-url https://example.com/login \
@@ -91,7 +91,7 @@ js-extractor -u https://example.com \
 ### Force Re-login
 
 ```bash
-js-extractor -u https://example.com \
+jsxtractor -u https://example.com \
     --browser \
     --login \
     --force-relogin
@@ -100,7 +100,7 @@ js-extractor -u https://example.com \
 ### Custom Storage State File
 
 ```bash
-js-extractor -u https://example.com \
+jsxtractor -u https://example.com \
     --browser \
     --login \
     --storage-state ./states/admin.json
@@ -115,7 +115,7 @@ Show surrounding content around matches.
 ### Example
 
 ```bash
-js-extractor -u https://example.com \
+jsxtractor -u https://example.com \
     --before 50 \
     --after 50
 ```
@@ -159,7 +159,7 @@ The repository contains predefined regex groups for:
 ### Example Usage
 
 ```bash
-js-extractor -u https://example.com \
+jsxtractor -u https://example.com \
     -g ./js-extractor-groups
 ```
 
@@ -240,7 +240,7 @@ extraction_results.json
 ## Python API Usage
 
 ```python
-from js_extractor.extractor import extract
+from jsxtractor.extractor import extract
 
 results = extract(
     target_url="https://example.com",
@@ -260,7 +260,7 @@ js-extractor/
 ├── pyproject.toml
 ├── README.md
 ├── src/
-│   └── js_extractor/
+│   └── jsxtractor/
 │       ├── __init__.py
 │       ├── __main__.py
 │       ├── cli.py
@@ -284,7 +284,7 @@ playwright install chromium
 Authentication requires browser mode:
 
 ```bash
-js-extractor -u https://example.com \
+jsxtractor -u https://example.com \
     --browser \
     --login
 ```

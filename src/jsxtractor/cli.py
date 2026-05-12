@@ -1,12 +1,12 @@
 import argparse
 
-from js_extractor.utils import setup_logger
+from jsxtractor.utils import setup_logger
 
-from js_extractor.extractor import extract
+from jsxtractor.extractor import extract
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        prog="js_extractor",
+        prog="jsxtractor",
         description=(
             "Extract JavaScript files from a target website and scan them "
             "using custom YAML regex pattern groups."
@@ -15,35 +15,35 @@ def parse_args():
         epilog="""
 Examples:
   Basic scan:
-      python js_extractor.py https://example.com
+      jsxtractor https://example.com
 
   Use custom regex group directory:
-      python js_extractor.py https://example.com ./groups
+      jsxtractor https://example.com ./groups
 
   Using named arguments:
-      python js_extractor.py -u https://example.com -g ./groups
+      jsxtractor -u https://example.com -g ./groups
 
   Enable verbose logging:
-      python js_extractor.py -u https://example.com -v
+      jsxtractor -u https://example.com -v
 
   Browser mode:
-      python js_extractor.py -u https://example.com --browser
+      jsxtractor -u https://example.com --browser
 
   Login flow:
-      python js_extractor.py -u https://example.com \\
+      jsxtractor -u https://example.com \\
           --browser \\
           --login \\
           --login-url https://example.com/login \\
           --login-success-indicator Logout
 
   Force re-login even if state.json exists:
-      python js_extractor.py -u https://example.com \\
+      jsxtractor -u https://example.com \\
           --browser \\
           --login \\
           --force-relogin
 
   Match extraction context:
-      python js_extractor.py -u https://example.com \\
+      jsxtractor -u https://example.com \\
           --after 50 --before 50
 """
     )

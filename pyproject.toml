@@ -3,7 +3,7 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "js-extractor"
+name = "jsxtractor"
 version = "1.0.0"
 description = "JavaScript extractor and regex scanner"
 readme = "README.md"
@@ -45,7 +45,7 @@ Homepage = "https://github.com/rdzsp/js-extractor-cli"
 Repository = "https://github.com/rdzsp/js-extractor-cli"
 
 [project.scripts]
-js-extractor = "js_extractor.cli:main"
+jsxtractor = "jsxtractor.cli:main"
 
 [tool.setuptools]
 package-dir = {"" = "src"}

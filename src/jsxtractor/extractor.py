@@ -1,6 +1,6 @@
 import os
 
-from js_extractor.utils import has_display, parse_regex_group, get_js_files_from_page, get_js_files_from_page_browser, fetch_js_content, extract_matches, do_login
+from jsxtractor.utils import has_display, parse_regex_group, get_js_files_from_page, get_js_files_from_page_browser, fetch_js_content, extract_matches, do_login
 
 def extract(
     target_url: str,
